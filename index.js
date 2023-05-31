@@ -15,7 +15,12 @@ app.use(bodyParser.urlencoded({ limit: "5mb", extended: true }));
 // midddle wares
 app.use(express.json());
 app.use(cors());
-
+app.use((req,res,next)=>{
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+  res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
+  next(); 
+})
 // const whitelist = ["https://careersbangladesh.com", "http://localhost:3000"]
 // const corsOptions = {
 //   origin: function (origin, callback) {

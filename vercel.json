@@ -6,7 +6,6 @@
       "use": "@vercel/node"
     }
   ],
-
   "headers": [
     {
       "source": "/api/(.*)",
@@ -22,6 +21,20 @@
           "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
         }
       ]
+    }
+  ],
+
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://careersbangladesh.com"
+    }
+  ],
+  "public": true,
+  "crons": [
+    {
+      "path": "/api/cron",
+      "schedule": "0 10 * * *"
     }
   ]
 }
