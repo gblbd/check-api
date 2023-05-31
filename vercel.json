@@ -6,21 +6,7 @@
       "use": "@vercel/node"
     }
   ],
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "https://careersbangladesh.com"
-        }
-      ]
-    }
-  ],
 
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://careersbangladesh.com" }
-  ],
   "public": true,
   "routes": {
     "/api/*": {
