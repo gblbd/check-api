@@ -93,6 +93,7 @@ exports.showjobCategories = async (req, res) => {
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
+const axios = new Axios();
 exports.uploademployData = async (req, res) => {
   try {
     const employer = req.body;
@@ -100,7 +101,7 @@ exports.uploademployData = async (req, res) => {
     var resx = employer.image.split(",")[1].trim();
     console.log("one");
     bodyData.append("image", resx);
-    const response = await Axios({
+    const response = await axios({
       method: "post",
       url: `https://api.imgbb.com/1/upload?key=${imageHostKey}`,
       headers: bodyData.getHeaders(),
