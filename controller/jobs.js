@@ -73,8 +73,8 @@ exports.showjobCategories = async (req, res) => {
   }
 };
 exports.uploademployData = async (req, res) => {
-    try {
-        const employer = req.body;
+  try {
+    const employer = req.body;
     const bodyData = new FormData();
     var resx = employer.image.split(",")[1].trim();
     console.log("one");
@@ -109,12 +109,11 @@ exports.uploademployData = async (req, res) => {
       contactPersonDesignation: employer.contactPersonDesignation,
       contactPersonEmail: employer.contactPersonEmail,
       contactPersonPhone: employer.contactPersonPhone,
-    }
+    };
     const result = await employerCollections.insertOne(newData);
     res.send(result);
-    }catch (error) {
-        console.error("An error occurred:", error);
-        return res.status(500).json({ error: "Internal Server Error" });
-      }
-}
-
+  } catch (error) {
+    console.error("An error occurred:", error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};

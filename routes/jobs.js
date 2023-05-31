@@ -9,8 +9,6 @@ const {
 
 
 
-
-
 router.get("/jobCategories",showjobCategories);
 router.post("/employerProfile",uploademployData);
 
