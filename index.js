@@ -445,11 +445,7 @@ async function run() {
     //////////////////////////// User api Section start //////////////////////////////////////////////
 
     // api to save a new user
-    app.post("/users", async (req, res) => {
-      const user = req.body;
-      const result = await userCollections.insertOne(user);
-      res.send(result);
-    });
+  
 
     // api to show all users
     app.get("/users", async (req, res) => {

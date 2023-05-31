@@ -62,6 +62,16 @@ const savedJobCollections = client
   .db("careersBangladeshDB")
   .collection("savedJobs");
 
+exports.uploadUserData = async (req, res) => {
+  try {
+    const user = req.body;
+    const result = await userCollections.insertOne(user);
+    res.send(result);
+  } catch (error) {
+    console.error("An error occurred:", error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
 exports.showjobCategories = async (req, res) => {
   console.log("hello");
   try {
