@@ -22,9 +22,15 @@
     }
   ],
 
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://careersbangladesh.com/api/$1"
+    }
+  ],
   "crons": [
     {
-      "path": "/cron",
+      "path": "/api/cron",
       "schedule": "0 10 * * *"
     }
   ]
