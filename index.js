@@ -513,12 +513,7 @@ async function run() {
     });
 
     // api to find a employer user by email
-    app.get("/employerUser/:email", async (req, res) => {
-      const email = req.params.email;
-      const query = { email };
-      const user = await userCollections.findOne(query);
-      res.send({ isEmployer: user?.userType === "employer" });
-    });
+ 
 
     // api to find jobseeker user by email
     app.get("/jobseekerUser/:email", async (req, res) => {

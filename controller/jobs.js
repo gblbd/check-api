@@ -12,7 +12,10 @@ const port = process.env.PORT || 5000;
 app.use(fileUpload());
 app.use(bodyParser.json({ limit: "5mb" }));
 app.use(bodyParser.urlencoded({ limit: "5mb", extended: true }));
+const FormData = require("form-data");
 
+// api to save a jobseekers's Personal Details
+const imageHostKey = "79e6ec2db50a9ac8dbdb3b42a1accc92";
 // midddle wares
 app.use(express.json());
 app.use(cors());
@@ -63,17 +66,14 @@ const savedJobCollections = client
   .db("careersBangladeshDB")
   .collection("savedJobs");
 
-
-exports.employerUserFind = async (req, res) => { 
-    const email = req.params.email;
-    const query = { email };
-    const user = await userCollections.findOne(query);
-    res.send({ isEmployer: user?.userType === "employer" });
-}
-
+exports.employerUserFind = async (req, res) => {
+  const email = req.params.email;
+  const query = { email };
+  const user = await userCollections.findOne(query);
+  res.send({ isEmployer: user?.userType === "employer" });
+};
 
 exports.uploadUserData = async (req, res) => {
-    
   try {
     const user = req.body;
     const result = await userCollections.insertOne(user);
