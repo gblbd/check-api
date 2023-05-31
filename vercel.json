@@ -25,7 +25,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://careersbangladesh.com/api/$1"
+      "destination": "https://careersbangladesh.com"
     }
   ],
   "crons": [
