@@ -9,10 +9,10 @@
   "public": true,
   "routes": [
     {
-      "src": "/.*",
+      "source": "/api/.*",
       "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"],
       "headers": {
-        "Access-Control-Allow-Origin": "https://careersbangladesh.com/api"
+        "Access-Control-Allow-Origin": "https://careersbangladesh.com"
       }
     }
   ],
