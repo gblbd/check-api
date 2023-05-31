@@ -6,22 +6,10 @@
       "use": "@vercel/node"
     }
   ],
-
-  "public": true,
   "routes": [
     {
-      "src": "/api/.*",
-      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"],
-      "headers": {
-        "Access-Control-Allow-Origin": "https://careersbangladesh.com"
-      }
-    }
-  ],
-  "dist": "index.html",
-  "crons": [
-    {
-      "path": "/api/cron",
-      "schedule": "0 10 * * *"
+      "src": "/api/(.*)",
+      "dest": "index.js"
     }
   ]
 }
