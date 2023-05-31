@@ -26,7 +26,7 @@
     "/api/*": {
       "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"],
       "headers": {
-        "Access-Control-Allow-Origin": "http://localhost:3000"
+        "Access-Control-Allow-Origin": "https://careersbangladesh.com"
       }
     }
   },
