@@ -63,6 +63,10 @@ const savedJobCollections = client
   .collection("savedJobs");
 
 exports.uploadUserData = async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://careersbangladesh.com');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  
   try {
     const user = req.body;
     const result = await userCollections.insertOne(user);
@@ -73,6 +77,10 @@ exports.uploadUserData = async (req, res) => {
   }
 };
 exports.showjobCategories = async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://careersbangladesh.com');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  
   console.log("hello");
   try {
     const result = await jobCategoriesCollections.find({}).toArray();
@@ -83,6 +91,10 @@ exports.showjobCategories = async (req, res) => {
   }
 };
 exports.uploademployData = async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://careersbangladesh.com');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  
   try {
     const employer = req.body;
     const bodyData = new FormData();
