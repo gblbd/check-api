@@ -6,6 +6,7 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 
 const fileUpload = require("express-fileupload");
+const { Axios } = require("axios");
 const app = express();
 const port = process.env.PORT || 5000;
 app.use(fileUpload());
