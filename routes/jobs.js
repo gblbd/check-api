@@ -5,7 +5,8 @@ const router = express.Router();
 const {
     showjobCategories,
     uploademployData,
-    uploadUserData
+    uploadUserData,
+    employerUserFind
 } = require("../controller/jobs");
 
 
@@ -13,5 +14,6 @@ const {
 router.get("/jobCategories",showjobCategories);
 router.post("/employerProfile",uploademployData);
 router.post("/users",uploadUserData);
+router.get("/employerUser/:email",employerUserFind);
 
 module.exports = router;

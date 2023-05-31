@@ -62,6 +62,15 @@ const savedJobCollections = client
   .db("careersBangladeshDB")
   .collection("savedJobs");
 
+
+exports.employerUserFind = async (req, res) => { 
+    const email = req.params.email;
+    const query = { email };
+    const user = await userCollections.findOne(query);
+    res.send({ isEmployer: user?.userType === "employer" });
+}
+
+
 exports.uploadUserData = async (req, res) => {
     
   try {
