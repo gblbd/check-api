@@ -17,20 +17,13 @@
       ]
     }
   ],
-
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://careersbangladesh.com" }
-  ],
-  "public": true,
-  "routes": [
     {
-      "src": "/api/.*",
-      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"],
-      "headers": {
-        "Access-Control-Allow-Origin": "https://careersbangladesh.com"
-      }
+      "source": "/api/(.*)",
+      "destination": "https://careersbangladesh.com/api/$1"
     }
   ],
+  "public": true,
   "crons": [
     {
       "path": "/api/cron",
