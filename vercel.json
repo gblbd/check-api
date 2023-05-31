@@ -13,27 +13,23 @@
         {
           "key": "Access-Control-Allow-Origin",
           "value": "https://careersbangladesh.com"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "content-type"
         }
       ]
     }
   ],
 
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "https://careersbangladesh.com"
-    }
+    { "source": "/api/(.*)", "destination": "https://careersbangladesh.com" }
   ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "index.js"
+  "public": true,
+  "routes": {
+    "/api/*": {
+      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"],
+      "headers": {
+        "Access-Control-Allow-Origin": "http://localhost:3000"
+      }
     }
-  ],
+  },
   "crons": [
     {
       "path": "/api/cron",
