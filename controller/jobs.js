@@ -6,16 +6,16 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 
 const fileUpload = require("express-fileupload");
-const { Axios } = require("axios");
+
 const app = express();
 const port = process.env.PORT || 5000;
 app.use(fileUpload());
 app.use(bodyParser.json({ limit: "5mb" }));
 app.use(bodyParser.urlencoded({ limit: "5mb", extended: true }));
-const FormData = require("form-data");
+
 
 // api to save a jobseekers's Personal Details
-const imageHostKey = "79e6ec2db50a9ac8dbdb3b42a1accc92";
+
 // midddle wares
 app.use(express.json());
 app.use(cors());
@@ -93,7 +93,10 @@ exports.showjobCategories = async (req, res) => {
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
-const axios = new Axios();
+const FormData = require("form-data");
+const Axios = require("axios");
+// api to save a jobseekers's Personal Details
+const imageHostKey = "79e6ec2db50a9ac8dbdb3b42a1accc92";
 exports.uploademployData = async (req, res) => {
   try {
     const employer = req.body;
@@ -101,7 +104,7 @@ exports.uploademployData = async (req, res) => {
     var resx = employer.image.split(",")[1].trim();
     console.log("one");
     bodyData.append("image", resx);
-    const response = await axios({
+    const response = await Axios({
       method: "post",
       url: `https://api.imgbb.com/1/upload?key=${imageHostKey}`,
       headers: bodyData.getHeaders(),
